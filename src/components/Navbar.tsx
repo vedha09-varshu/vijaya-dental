@@ -1,6 +1,7 @@
 import { Phone, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom"; // ✅ added
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -8,6 +9,7 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Why Us", href: "#why" },
   { label: "Contact", href: "#contact" },
+  { label: "Blog", href: "/blog" } // ✅ route
 ];
 
 export const Navbar = () => {
@@ -20,6 +22,33 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // 🔥 helper: decide Link vs anchor
+  const renderLink = (l: { label: string; href: string }, onClick?: () => void) => {
+    if (l.href.startsWith("/")) {
+      return (
+        <Link
+          key={l.href}
+          to={l.href}
+          onClick={onClick}
+          className="text-sm font-medium text-foreground/80 hover:text-primary transition-smooth"
+        >
+          {l.label}
+        </Link>
+      );
+    }
+
+    return (
+      <a
+        key={l.href}
+        href={l.href}
+        onClick={onClick}
+        className="text-sm font-medium text-foreground/80 hover:text-primary transition-smooth"
+      >
+        {l.label}
+      </a>
+    );
+  };
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-smooth ${
@@ -27,6 +56,8 @@ export const Navbar = () => {
       }`}
     >
       <nav className="container mx-auto flex items-center justify-between py-4">
+
+        {/* LOGO */}
         <a href="#home" className="flex items-center gap-2 group">
           <div className="w-10 h-10 rounded-xl bg-icon-gradient flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
             <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-primary-foreground">
@@ -35,18 +66,18 @@ export const Navbar = () => {
           </div>
           <div className="leading-tight">
             <div className="font-display font-extrabold text-lg text-primary">Vijaya</div>
-            <div className="text-[10px] tracking-[0.2em] text-secondary font-semibold -mt-0.5">DENTAL CARE</div>
+            <div className="text-[10px] tracking-[0.2em] text-secondary font-semibold -mt-0.5">
+              DENTAL CARE
+            </div>
           </div>
         </a>
 
+        {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-smooth">
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) => renderLink(l))}
         </div>
 
+        {/* RIGHT SIDE */}
         <div className="hidden md:flex items-center gap-3">
           <a href="tel:9059198393" className="flex items-center gap-2 text-sm font-semibold text-primary">
             <Phone className="w-4 h-4" /> 90591 98393
@@ -56,19 +87,22 @@ export const Navbar = () => {
           </Button>
         </div>
 
-        <button className="md:hidden text-primary" onClick={() => setOpen(!open)} aria-label="Menu">
+        {/* MOBILE MENU BUTTON */}
+        <button
+          className="md:hidden text-primary"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
           {open ? <X /> : <Menu />}
         </button>
       </nav>
 
+      {/* MOBILE MENU */}
       {open && (
         <div className="md:hidden bg-background border-t border-border">
           <div className="container mx-auto py-4 flex flex-col gap-4">
-            {navLinks.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm font-medium text-foreground/80">
-                {l.label}
-              </a>
-            ))}
+            {navLinks.map((l) => renderLink(l, () => setOpen(false)))}
+
             <Button variant="cta" asChild className="w-full">
               <a href="tel:9059198393">Call 90591 98393</a>
             </Button>
