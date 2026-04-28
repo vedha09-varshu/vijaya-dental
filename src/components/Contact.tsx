@@ -104,11 +104,11 @@ export const Contact = () => {
         {/* Map */}
         <div className="mt-10 rounded-3xl overflow-hidden shadow-elegant border border-border/50 aspect-[16/7]">
           <iframe
-            title="Vijaya Dental Care Location"
-            src="https://maps.google.com/maps?q=Muralinagar%20Madhavadhara%20Visakhapatnam%20530007&t=&z=15&ie=UTF8&iwloc=&output=embed"
-            className="w-full h-full border-0"
-            loading="lazy"
-          />
+  title="Vijaya Dental Care Location"
+  src="https://maps.google.com/maps?q=Door No 39-3-13/1, Indra Nilayam, Burma Colony, Opp Masjid, Muralinagar, Madhavadhara, Visakhapatnam, Andhra Pradesh 530007, India&output=embed"
+  className="w-full h-full border-0"
+  loading="lazy"
+/>
         </div>
       </div>
     </section>
