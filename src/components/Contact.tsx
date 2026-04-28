@@ -103,12 +103,7 @@ export const Contact = () => {
 
         {/* Map */}
         <div className="mt-10 rounded-3xl overflow-hidden shadow-elegant border border-border/50 aspect-[16/7]">
-          <iframe
-  title="Vijaya Dental Care Location"
-  src="https://maps.google.com/maps?q=Door No 39-3-13/1, Indra Nilayam, Burma Colony, Opp Masjid, Muralinagar, Madhavadhara, Visakhapatnam, Andhra Pradesh 530007, India&output=embed"
-  className="w-full h-full border-0"
-  loading="lazy"
-/>
+          <<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3799.997014507718!2d83.26119332421814!3d17.744779842413017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Door%20No%2039-3-13%2F1%2C%20Indra%20Nilayam%20Burma%20Colony%2C%20Opp.%20Masjid%20Muralinagar%2C%20Madhavadhara%20Visakhapatnam%20%E2%80%93%20530007!5e0!3m2!1sen!2sin!4v1777366012620!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
