@@ -102,10 +102,16 @@ export const Contact = () => {
         </div>
 
         {/* Map */}
-        <div className="mt-10 rounded-3xl overflow-hidden shadow-elegant border border-border/50 aspect-[16/7]">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.971092375187!2d83.2675099!3d17.7460012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395d0074d4a51f%3A0x88a12a11bc537038!2sVijaya%20dental%20care!5e0!3m2!1sen!2sin!4v1777366445777!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
+<div className="mt-10 rounded-3xl overflow-hidden shadow-elegant border border-border/50 aspect-[16/7]">
+  <iframe
+    title="Vijaya Dental Care Location"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.971092375187!2d83.2675099!3d17.7460012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395d0074d4a51f%3A0x88a12a11bc537038!2sVijaya%20dental%20care!5e0!3m2!1sen!2sin!4v1777366445777!5m2!1sen!2sin"
+    className="w-full h-full border-0"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    allowFullScreen
+  ></iframe>
+</div>
     </section>
   );
 };
